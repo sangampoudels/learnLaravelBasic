@@ -13,20 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/demo/{name}/{id?}', function ($name, $id = null) {
-    $data = compact('name', 'id');
-    return view('demo')->with($data);
-    // print_r($data);
-    // echo "$name" . "   ";
-    // echo "$id";
-    //return view('demo');
-});
-Route::any('/test', function () {
-    echo "testing the route";
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+// Route::get('/demo/{name}/{id?}', function ($name, $id = null) {
+//     $data = compact('name', 'id');
+//     return view('demo');
+//     // print_r($data);
+//     // echo "$name" . "   ";
+//     // echo "$id";
+//     //return view('demo');
+// });
+// Route::any('/test', function () {
+//     echo "testing the route";
+// });
 
 
 // Route::put('users/{id}', function ($id) {
@@ -36,3 +36,12 @@ Route::any('/test', function () {
 // Route::delete('/users/{id}', function($id){
 
 // });
+Route::get('/', function () {
+    return view('home');
+});
+Route::get('/about/{name}', function ($name) {
+    return view('about', compact('name'));
+});
+Route::get('/directives', function () {
+    return view('directives');
+});
