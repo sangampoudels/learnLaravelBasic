@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DemoController;
+use App\Http\Controllers\SingleActionController;
+use App\Http\Controllers\PhotoCOntroller;
+use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\ComponentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,12 +41,13 @@ use Illuminate\Support\Facades\Route;
 // Route::delete('/users/{id}', function($id){
 
 // });
-Route::get('/', function () {
-    return view('home');
-});
-Route::get('/about/{name}', function ($name) {
-    return view('about', compact('name'));
-});
-Route::get('/directives', function () {
-    return view('directives');
-});
+// 
+
+Route::get('/', [DemoController::class, 'index']);
+Route::get('/about', 'App\http\Controllers\DemoController@about');
+Route::get('/courses', SingleActionController::class);
+Route::resource('/photo', PhotoController::class);
+Route::get('/register', [RegistrationController::class, 'index']);
+Route::post('/register', [RegistrationController::class, 'register']);
+Route::get('/component', [ComponentController::class, 'index']);
+Route::post('/component', [ComponentController::class, 'component']);
