@@ -1,11 +1,14 @@
 <?php
 
+use App\Models\Customer;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DemoController;
-use App\Http\Controllers\SingleActionController;
 use App\Http\Controllers\PhotoCOntroller;
-use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ComponentController;
+use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\SingleActionController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -51,3 +54,11 @@ Route::get('/register', [RegistrationController::class, 'index']);
 Route::post('/register', [RegistrationController::class, 'register']);
 Route::get('/component', [ComponentController::class, 'index']);
 Route::post('/component', [ComponentController::class, 'component']);
+
+
+Route::get('/customer/create', [CustomerController::class, 'create'])->name('customer.create');
+Route::get('/customer/delete/{id}', [CustomerController::class, 'delete'])->name('customer.delete');
+Route::get('/customer/edit/{id}', [CustomerController::class, 'edit'])->name('customer.edit');
+Route::post('/customer/update/{id}', [CustomerController::class, 'update'])->name('customer.update');
+Route::get('/customer', [CustomerController::class, 'view']);
+Route::post('/customer', [CustomerController::class, 'store']);
