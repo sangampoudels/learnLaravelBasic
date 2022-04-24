@@ -5,7 +5,7 @@
     <div class="container">
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" name="name" id="" class="form-control @error('name') is-inavlid @enderror" value="{{ old('name') ?? $customer->name}}">
+            <input type="text" name="name" id="" class="form-control @error('name') is-inavlid @enderror" value="{{ old('name') ?? $customer->name ?? ''}}">
             @error('name')
             <small class="form-text text-danger">{{ $message}}</small>
             @enderror
@@ -13,7 +13,7 @@
         <br> <br>
         <div class="form-group">
             <label for="address">Address</label>
-            <input type="text" name="address" id="" class="form-control @error('address') is-inavlid @enderror" value="{{ old('address')  ?? $customer->address }}">
+            <input type="text" name="address" id="" class="form-control @error('address') is-inavlid @enderror" value="{{ old('address')  ?? $customer->address ?? '' }}">
             @error('address')
             <small class="form-text text-danger">{{ $message}}</small>
             @enderror
@@ -21,7 +21,7 @@
         <br> <br>
         <div class="form-group">
             <label for="phonenumber">Phone Number</label>
-            <input type="number" name="phonenumber" id="" class="form-control @error('phonenumber') is-inavlid @enderror" value="{{ old('phonenumber')  ?? $customer->phonenumber}}">
+            <input type="number" name="phonenumber" id="" class="form-control @error('phonenumber') is-inavlid @enderror" value="{{ old('phonenumber')  ?? $customer->phonenumber ?? ''}}">
             @error('phonenumber')
             <small class="form-text text-danger">{{ $message}}</small>
             @enderror
@@ -29,7 +29,7 @@
         <br>
         <div class="form-group">
             <label for="dob">Date Of Birth</label>
-            <input type="date" name="dob" id="" class="form-control @error('dob') is-inavlid @enderror" value="{{ old('dob')  ?? $customer->dob}}">
+            <input type="date" name="dob" id="" class="form-control @error('dob') is-inavlid @enderror" value="{{ old('dob')  ?? $customer->dob ?? ''}}">
             @error('dob')
             <small class="form-text text-danger">{{ $message}}</small>
             @enderror
