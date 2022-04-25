@@ -45,7 +45,7 @@ use App\Http\Controllers\SingleActionController;
 // Route::delete('/users/{id}', function($id){
 
 // });
-// 
+//
 
 Route::get('/', [DemoController::class, 'index']);
 Route::get('/about', 'App\http\Controllers\DemoController@about');
@@ -86,3 +86,7 @@ Route::get('destory-session', function () {
     session()->forget('id',);
     return redirect('get-all-session');
 });
+
+
+Route::get('/upload', [UploadController::class, 'uploadpage'])->name('upload-page');
+Route::post('/upload', [UploadController::class, 'upload'])->name('upload');
